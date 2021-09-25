@@ -4,11 +4,12 @@ function ingresarPaquete(){
     var paquete = parseInt(document.getElementById("paquete").value);
     paquetes.push(paquete);
     console.log(paquetes);
+    mostrar(paquete, 0);
 };
 
 function cargarCamion(){
-    let mayor = paquetes[0];
-    let mayor2 = 0;
+    var mayor = paquetes[0];
+    var mayor2 = 0;
     let resultado = 0
     var camion = parseInt(document.getElementById("camion").value);
     for (x = 1; x < paquetes.length; x++){
@@ -30,11 +31,10 @@ function cargarCamion(){
         
 
     }
-    console.log(mayor);
-    console.log(mayor2);
     if((camion-(mayor+mayor2) == 30)){
         camiones.push([mayor,mayor2])
         console.log(camiones);
+        
         let posicion = paquetes.indexOf(mayor);
         paquetes.splice(posicion, 1);
         posicion = paquetes.indexOf(mayor2)
@@ -43,4 +43,8 @@ function cargarCamion(){
         console.log("Este camion no se puede cargar")
     }
     
+}
+
+function mostrar(paquete,camion){
+        document.getElementById("mensaje").append(paquete + ", ")
 }
