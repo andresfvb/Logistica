@@ -3,20 +3,48 @@ var camiones = [];
 function ingresarPaquete(){
     var paquete = parseInt(document.getElementById("paquete").value);
     paquetes.push(paquete);
-    console.log(paquetes);
-    mostrar(paquete, 0);
+    crearListaPaquete();
 };
 
+function crearListaPaquete(){
+    var tarea = parseInt(document.getElementById("paquete").value);
+    var elemento = document.createElement("li");
+    var contenido = document.createTextNode(tarea);
+    elemento.appendChild(contenido);
+    document.getElementById("lista-paquetes").appendChild(elemento);
+}
+function crearCamion(){
+    var tarea = parseInt(document.getElementById("camion").value);
+    var elemento = document.createElement("li");
+    var contenido = document.createTextNode(tarea);
+    elemento.appendChild(contenido);
+    document.getElementById("lista-camiones").appendChild(elemento);
+}
+function eliminarPaquete(mayor, mayor2){
+    var buscar = paquetes.indexOf(mayor);
+    var padre = document.getElementsByTagName("li")[0].parentNode;
+    var primerelemento = document.getElementsByTagName("li")[buscar];
+    padre.removeChild(primerelemento);
+    paquetes.splice(buscar, 1);
+    var buscar2 = paquetes.indexOf(mayor2);
+    var segundoelemento = document.getElementsByTagName("li")[buscar2];
+    padre.removeChild(segundoelemento);
+    paquetes.splice(buscar2, 1)
+
+}
+
 function cargarCamion(){
-    var mayor = paquetes[0];
+    var mayor = 0;
     var mayor2 = 0;
     let resultado = 0
     var camion = parseInt(document.getElementById("camion").value);
-    for (x = 1; x < paquetes.length; x++){
+
         for (j = 0; j < paquetes.length; j++){
             if ((camion-paquetes[j]) > 30)
                 if (mayor < paquetes[j]){
                     mayor = paquetes[j];
+                }else{
+                mayor
                 }
         }
         for (j = 0; j < paquetes.length; j++){
@@ -27,24 +55,24 @@ function cargarCamion(){
                         mayor2 = paquetes[j];
                     }
                 }
-        }
+        
         
 
     }
-    if((camion-(mayor+mayor2) == 30)){
+    if(mayor2 == 0 || mayor == 0){
+        crearCamion();
+        document.getElementById("lista-camiones").append("Este camion no se puede cargar")
+    }
+    else if((camion-(mayor+mayor2) == 30)){
         camiones.push([mayor,mayor2])
-        console.log(camiones);
+        eliminarPaquete(mayor, mayor2);
+        crearCamion();
+        document.getElementById("lista-camiones").append("[" + mayor + ", " + mayor2 + "]")
         
-        let posicion = paquetes.indexOf(mayor);
-        paquetes.splice(posicion, 1);
-        posicion = paquetes.indexOf(mayor2)
-        paquetes.splice(posicion, 1)
     }else{
-        console.log("Este camion no se puede cargar")
+        crearCamion();
+        document.getElementById("lista-camiones").append("Este camion no se puede cargar")
     }
     
 }
 
-function mostrar(paquete,camion){
-        document.getElementById("mensaje").append(paquete + ", ")
-}

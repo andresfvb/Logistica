@@ -26,45 +26,63 @@
         </div>
     </div>
     </div>
-    <div class="container card" style="width:50%">
-        <div class="page-header">
-            <h2>Acceso</h2>
-        </div>
+    <div class="container card" style="width:75%">
         <div class="row">
-            <div class="col-md-12">
-                <div class="panel with-nav-tabs panel-primary">
-                    <div class="panel-heading">
-                            <ul class="nav nav-tabs">
-                                <li><a href="#tab1primary" data-toggle="tab">Ver todo</a></li>
-                                <li><a href="#tab2primary" data-toggle="tab">Ingresar paquetes</a></li>
-                                <li><a href="#tab3primary" data-toggle="tab">Ver camion</a></li>
-                            </ul>
-                    </div>
-                    <div class="panel-body">
-                        <div class="tab-content">
-                            <div class="tab-pane " id="tab1primary">
-                                <input type="button" value="Mostrar todo" onclick="mostrar()">
-                                <div id="mensaje">
-
-                                </div>
-                            </div>
-                            <div class="tab-pane " id="tab2primary">
+            <div class="col-md-5">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-header">Registrar paquetes</h5>
                                 <input type="text" name="tamaño_paquete" id="paquete">
                                 <input type="button" value="Ingresar paquete" onclick="ingresarPaquete()">
                             </div>
-                            <div class="tab-pane " id="tab3primary">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-header">Despachar camion</h5>
                                 <input type="text" name="tamaño_camion" id="camion">
-                                <input type="button" value="Cargar camion"  onclick="cargarCamion()">
+                                <input type="button" value="Cargar camion" onclick="cargarCamion()">
                             </div>
-                            <div class="tab-pane " id="tab4primary">Primary 4</div>
-                            <div class="tab-pane " id="tab5primary">Primary 5</div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="col-md-7">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-header">Listas de paquetes</h5>
+                                <div id="lista-paquetes">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-header">Despacho de camiones</h5>
+                                <div id="lista-camiones">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+            </div>
         </div>
+        
     </div>
-    
+
+</div>
+
+
 </body>
 
 </html>

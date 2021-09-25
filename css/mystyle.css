@@ -58,3 +58,12 @@ ul li .active{
 ul li a:hover{
     color: #000 !important;;
 }
+.card{
+    margin-top: 20px;
+}
+.row>*{
+    padding: 20px;
+}
+.card-header{
+    margin-bottom: 20px;
+}
